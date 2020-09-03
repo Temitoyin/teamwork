@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 
 //Routes
 const userRoutes = require("./routes/user");
-
+const gifRoutes = require("./routes/gif");
 //Db connection
 mongoose
   .connect(process.env.MONGO_URI, {
@@ -30,6 +30,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 //Router middle ware
 app.use("/api-v1", userRoutes);
+app.use("/api-v1", gifRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);
